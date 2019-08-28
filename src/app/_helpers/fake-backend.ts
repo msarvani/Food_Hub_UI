@@ -3,6 +3,7 @@ import {HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS, HttpHandler, HttpEvent,
 import { Observable, of, throwError } from 'rxjs';
 import {mergeMap, materialize, delay, dematerialize} from 'rxjs/operators';
 import { registerLocaleData } from '@angular/common';
+import { identifierModuleUrl } from '@angular/compiler';
 
 //let users = [{id:1, firstName: 'Sarvani', lastName: 'Medarametla', userName: 'saruMeda', password: 'mydummypassword'}];
 
@@ -24,10 +25,35 @@ return of(null)
         switch(true){
             case url.endsWith('/users/authenticate') && method == 'POST': return authenticate();
             case url.endsWith('/users/register') && method == 'POST': return register();
+            case url.endsWith('/users') && method === 'GET': return getUsers();
+            case url.match(/\/users\/\d+$/) && method === 'DELETE': return deleteUser();
             default: next.handle(request);
         }
     }
 
+    function deleteUser(){
+        if(!isLoggedIn())
+            return unauthorized();
+
+        users = users.filter(x=> x.id !== idFromUrl());
+        localStorage.setItem('users', JSON.stringify(users));
+        return ok();
+    }
+
+
+    function getUsers(){
+        if(!isLoggedIn())
+        return unauthorized();
+        return ok(users);
+    }
+
+    function unauthorized(){
+        return throwError({status: 401, error: {message: 'Unauthorized'}});
+    }
+
+    function isLoggedIn(){
+        return headers.get('Authoriza')
+    }
     function authenticate(){
         const {username, password} = body;
         const user = users.find(x=> x.userName === username && x.password === password);
@@ -62,6 +88,11 @@ return of(null)
 
     function error(message){
        return throwError({message: {message}});
+    }
+
+    function idFromUrl(){
+        const urlParts = url.split('/');
+        return parseInt(urlParts[urlParts.length-1]);
     }
 
 }
