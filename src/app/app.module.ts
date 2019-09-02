@@ -15,11 +15,13 @@ import {JwtInterceptor} from './_helpers';
 import {ErrorInterceptor} from './_helpers';
 import {FontAwesomeModule} from 'ngx-icons';
 import {MatIconRegistry, MatIconModule} from '@angular/material';
-//import {GoogleLoginProvider, FacebookLoginProvider} from 'angularx-social-login';
-//import {AuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
+import {GoogleLoginProvider, FacebookLoginProvider} from 'angularx-social-login';
+import {AuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
+import {SocialConnectComponent} from './socialconnect';
 
 
-/*let config = new AuthServiceConfig(
+
+let config = new AuthServiceConfig(
   [
     {
         id: GoogleLoginProvider.PROVIDER_ID,
@@ -34,7 +36,7 @@ import {MatIconRegistry, MatIconModule} from '@angular/material';
 
 export function provideConfig(){
   return config;
-}*/
+}
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ export function provideConfig(){
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    SocialConnectComponent
   ],
   imports: [
     BrowserModule,
@@ -51,16 +54,16 @@ export function provideConfig(){
     HttpClientModule,
     AvatarModule,
     FontAwesomeModule,
-    MatIconModule
-   // SocialLoginModule
+    MatIconModule,
+    SocialLoginModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-   // {provide: AuthServiceConfig},
-      fakeBackendProvider,
+    {provide: AuthServiceConfig},
+      fakeBackendProvider
      // FacebookLoginProvider,
-     // GoogleLoginProvider,
+      //GoogleLoginProvider
      //useFactory: provideConfig
     ],
   bootstrap: [AppComponent]
