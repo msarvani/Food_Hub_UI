@@ -13,7 +13,8 @@ import {AlertComponent} from './_components';
 import {fakeBackendProvider} from './_helpers';
 import {JwtInterceptor} from './_helpers';
 import {ErrorInterceptor} from './_helpers';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {FontAwesomeModule} from 'ngx-icons';
+import {MatIconRegistry, MatIconModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule,
     HttpClientModule,
     AvatarModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatIconModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
@@ -39,4 +41,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
   bootstrap: [AppComponent]
 })
 export class AppModule { 
+
+  constructor(matIconRegistry: MatIconRegistry){
+    matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
+  }
 };

@@ -1,0 +1,14 @@
+.input-icons-text-input{
+    position: relative;
+    top: -30px;
+    margin-left: 97%;
+}
+
+#show-password-text{
+    text-align: right;
+    float: right;
+}
+
+.submit-button{
+    padding: 10px 350px;
+}
