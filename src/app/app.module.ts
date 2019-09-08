@@ -45,7 +45,7 @@ export function provideConfig(){
     LoginComponent,
     RegisterComponent,
     AlertComponent,
-    SocialConnectComponent
+     SocialConnectComponent
   ],
   imports: [
     BrowserModule,
@@ -60,11 +60,10 @@ export function provideConfig(){
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    {provide: AuthServiceConfig},
-      fakeBackendProvider
-     // FacebookLoginProvider,
-      //GoogleLoginProvider
-     //useFactory: provideConfig
+    {provide: AuthServiceConfig, useFactory: provideConfig},
+      fakeBackendProvider,
+      FacebookLoginProvider,
+      GoogleLoginProvider
     ],
   bootstrap: [AppComponent]
 })

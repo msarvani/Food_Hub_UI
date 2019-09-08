@@ -17,19 +17,23 @@
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
 </ul> -->
+
+<!-- home nav bar -->
 <nav class="navbar navbar-expand navbar-dark bg-dark">
   <div class = navbar-nav>
       <div class="col-xs-12 col-sm-6 col-md-4">
           <a class="nav-item nav-link" routerLink="/">Home</a>
       </div>
   </div>
-        
+      
+  <!-- logout -->
   <div class = navbar-nav>
       <div class="col-xs-12 col-sm-6 col-md-4">
           <a class="nav-item nav-link" (click) = "logout()">Logout</a>
       </div>
   </div>
         
+  <!-- logo -->
   <div class = navbar-nav>
       <div id = "logo">
           <ngx-avatar src = "/assets/images/my-icon.png" class="col-xs-12 col-sm-6 col-md-4"></ngx-avatar>
@@ -37,6 +41,7 @@
   </div>    
 </nav>
 
+<!-- routing different components into app.component.html-->
   <div class="jumbotron">
     <div class="container">
         <div class="row">
@@ -45,6 +50,15 @@
               <router-outlet></router-outlet>
             </div>
         </div>
-    </div>
+    </div>  
 </div>
+
+<div>
+  <social-connect></social-connect>
+</div>
+
+
+
+
+
 

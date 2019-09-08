@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from 'angularx-social-login';
 import {GoogleLoginProvider, FacebookLoginProvider} from 'angularx-social-login';
 import {SocialUser} from 'angularx-social-login';
@@ -16,11 +16,17 @@ export class SocialConnectComponent implements OnInit{
     constructor (private authService: AuthService){}
    
     signInWithGoogle():void{
-        this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+        this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+            (userData) => {
+                this.user = userData;
+            });
     }
 
     signInWithFB():void{
-        this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+        this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
+            (userData) => {
+                this.user = userData;
+            });
     }
    
     signOut():void{
@@ -33,8 +39,6 @@ export class SocialConnectComponent implements OnInit{
                  this.user = user;
                  this.loggedIn = (user != null);
              }
-
          );
     }
-
 }
