@@ -11,22 +11,16 @@ import {SocialUser} from 'angularx-social-login';
 export class SocialConnectComponent implements OnInit{
 
     private user: SocialUser;
-  private loggedIn: boolean;
+  //private loggedIn: boolean;
 
     constructor (private authService: AuthService){}
    
     signInWithGoogle():void{
-        this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
-            (userData) => {
-                this.user = userData;
-            });
+        this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
     }
 
     signInWithFB():void{
-        this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
-            (userData) => {
-                this.user = userData;
-            });
+        this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
     }
    
     signOut():void{
@@ -37,7 +31,7 @@ export class SocialConnectComponent implements OnInit{
          this.authService.authState.subscribe(
              (user) => {
                  this.user = user;
-                 this.loggedIn = (user != null);
+                 //this.loggedIn = (user != null);
              }
          );
     }

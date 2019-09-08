@@ -15,13 +15,10 @@ import {JwtInterceptor} from './_helpers';
 import {ErrorInterceptor} from './_helpers';
 import {FontAwesomeModule} from 'ngx-icons';
 import {MatIconRegistry, MatIconModule} from '@angular/material';
-import {GoogleLoginProvider, FacebookLoginProvider} from 'angularx-social-login';
-import {AuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
+import {GoogleLoginProvider, FacebookLoginProvider, AuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
 import {SocialConnectComponent} from './socialconnect';
 
-
-
-let config = new AuthServiceConfig(
+const config = new AuthServiceConfig(
   [
     {
         id: GoogleLoginProvider.PROVIDER_ID,
@@ -45,7 +42,7 @@ export function provideConfig(){
     LoginComponent,
     RegisterComponent,
     AlertComponent,
-     SocialConnectComponent
+    SocialConnectComponent
   ],
   imports: [
     BrowserModule,
