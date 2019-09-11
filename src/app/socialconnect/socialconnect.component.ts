@@ -6,7 +6,7 @@ import {SocialUser} from 'angularx-social-login';
 @Component({
     selector: 'social-connect',
     templateUrl: 'socialconnect.component.html',
-    styleUrls: ['socialconnect.component.css']
+    styleUrls: ['./socialconnect.component.css']
 })
 export class SocialConnectComponent implements OnInit{
 
@@ -14,25 +14,24 @@ export class SocialConnectComponent implements OnInit{
   //private loggedIn: boolean;
 
     constructor (private authService: AuthService){}
+
+    ngOnInit(){
+        this.authService.authState.subscribe(
+            (user) => {
+                this.user = user;
+                console.log(user);
+                     });
+   }
    
     signInWithGoogle():void{
-        this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+        this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(x=>console.log(x));
     }
 
     signInWithFB():void{
-        this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+        this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(x=>console.log(x));
     }
    
     signOut():void{
         this.authService.signOut();
-    }
-   
-    ngOnInit(){
-         this.authService.authState.subscribe(
-             (user) => {
-                 this.user = user;
-                 //this.loggedIn = (user != null);
-             }
-         );
-    }
+    }   
 }
