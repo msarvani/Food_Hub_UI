@@ -18,6 +18,7 @@ import {FontAwesomeModule} from 'ngx-icons';
 import {MatIconRegistry, MatIconModule} from '@angular/material';
 import {GoogleLoginProvider, FacebookLoginProvider, AuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
 import {SocialConnectComponent} from './socialconnect';
+import { HelpComponent } from './help';
 
 const config = new AuthServiceConfig(
   [
@@ -44,7 +45,8 @@ export function provideConfig(){
     RegisterComponent,
     AlertComponent,
     SocialConnectComponent,
-    HeaderComponent
+    HeaderComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,35 @@
  <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class = navbar-nav>
         <div class="col-xs-12 col-sm-6 col-md-4">
-            <a class="nav-item nav-link" routerLink="/">Home</a>
+            <a class="nav-item nav-link" routerLink="/home">Home</a>
         </div>
     </div>
 
-    <!-- logout -->
+    <div class = navbar-nav>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <a class="nav-item nav-link" routerLink="/register">Register</a>
+        </div>
+    </div>
+
+    <!-- login -->
    
     <div class = navbar-nav>
         <div class="col-xs-12 col-sm-6 col-md-4">
-           <!-- <a class="nav-item nav-link" (click) = "logout()">Logout</a> -->
            <div>
             <a class="nav-item nav-link" routerLink = "login" (click) = "logIn()">LogIn</a>
         </div>      
         </div>
     </div>
 
+    <!-- Help -->
+
+    <div class = navbar-nav>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+           <div>
+            <a class="nav-item nav-link" routerLink = "help" (click) = "help()">Help</a>
+        </div>      
+        </div>
+    </div>
          
     <!-- logo -->
 
