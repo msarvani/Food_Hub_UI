@@ -19,43 +19,22 @@
 </ul> -->
 
 <!-- home nav bar -->
-<nav class="navbar navbar-expand navbar-dark bg-dark">
-  <div class = navbar-nav>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-          <a class="nav-item nav-link" routerLink="/">Home</a>
-      </div>
-  </div>
-      
-  <!-- logout -->
-  <div class = navbar-nav>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-          <a class="nav-item nav-link" (click) = "logout()">Logout</a>
-      </div>
-  </div>
-        
-  <!-- logo -->
-  <div class = navbar-nav>
-      <div id = "logo">
-          <ngx-avatar src = "/assets/images/my-icon.png" class="col-xs-12 col-sm-6 col-md-4"></ngx-avatar>
-      </div> 
-  </div>    
-</nav>
 
 <!-- routing different components into app.component.html-->
-  <div class="jumbotron">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 offset-sm-2">
-              <alert></alert>  
-              <router-outlet></router-outlet>
-            </div>
-        </div>
-    </div>  
+<app-header></app-header>
+
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-8 offset-sm-2">
+              <alert></alert>
+              <router-outlet></router-outlet> 
+          </div>
+      </div>
+  </div>  
 </div>
 
-<div>
-  <social-connect></social-connect>
-</div>
+
 
 
 

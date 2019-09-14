@@ -8,6 +8,7 @@ import { SocialConnectComponent } from './socialconnect/socialconnect.component'
 
 const appRoutes: Routes = [
     { path : '', component: HomeComponent, canActivate: [AuthGuard]},
+    { path : 'home', component: HomeComponent},
     { path : 'login', component: LoginComponent},
     { path : 'register', component: RegisterComponent},
     {path : 'social', component: SocialConnectComponent},

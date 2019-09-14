@@ -2,9 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import { AuthenticationService } from '../_services';
 import {UserService} from '../_services';
 
+
 import {first} from 'rxjs/operators';
 
-@Component({templateUrl:'home.component.html'})
+@Component({
+    selector: 'app-home',
+    templateUrl:'home.component.html',
+    styleUrls: ['home.component.css']
+})
 export class HomeComponent implements OnInit{
 
     currentUser: any;
@@ -17,7 +22,7 @@ export class HomeComponent implements OnInit{
         this.currentUser = this.authenticationService.currentUserValue;
     }
     ngOnInit(){
-        this.loadAllUsers();
+        //this.loadAllUsers();
     }
 
     deleteUser(id: number){

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {AuthenticationService} from './_services';
 
@@ -13,8 +13,13 @@ export class AppComponent {
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService
-  ){
+  )
+  {
     this.authenticationService.currentUser.subscribe(x=> this.currentUser = x);
+  }
+
+  ngOnInit(){
+    this.router.navigate(['/home']);
   }
 
   logout(){

@@ -1,0 +1,15 @@
+i{
+    position: relative;
+    top: -30px;
+    margin-left: 97%;
+}
+
+#register_button{
+    margin-right: 35px;
+    width: 45%;
+}
+
+#register_cancel{
+    margin-left: 35px;
+    width: 45%;
+}

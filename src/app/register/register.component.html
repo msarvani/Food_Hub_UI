@@ -3,52 +3,70 @@
 <form [formGroup] = "registerForm" (ngSubmit) = "onSubmit()">
 
 <div class = "form-group">
-    <label for = "firstName">FirstName</label>
-    <input type = "text" formControlName = "firstName" class = "form-control" [ngClass] = "{ 'is-invalid': submitted && f.firstName.errors}"/>
-
-    <div *ngIf = "submitted && f.firstName.errors" class = "invalid-feedback">
+    <input type = "text" placeholder= "FirstName" formControlName = "firstName" class = "form-control"/>
+    <i class= "fa fa-user"></i>
+    <!-- <div *ngIf = "submitted && f.firstName.errors" class = "invalid-feedback">
         <div *ngIf = "f.firstName.errors.required">First Name is Required</div>
-    </div>
+    </div> -->
 </div>
 
 <div class = "form-group">
-        <label for = "lastName">LastName</label>
-        <input type = "text" formControlName = "lastName" class = "form-control" [ngClass] = "{'is-invalid': submitted && f.lastName.errors}"/>
-        <div *ngIf = "submitted && f.lastName.errors" class = "invalid-feedback">
+        <input type = "text" placeholder="LastName" formControlName = "lastName" class = "form-control"/>
+        <i class= "fa fa-user"></i>
+        <!-- <div *ngIf = "submitted && f.lastName.errors" class = "invalid-feedback">
             <div *ngIf = "f.lastName.errors.required">LastName is Required</div>
-        </div>
+        </div> -->
 </div>
 
 <div class = "form-group">
-        <label for = "userName">UserName</label>
-        <input type = "text" formControlName = "userName" class = "form-control" [ngClass] = "{'is-invalid': submitted && f.userName.errors}"/>
-        <div *ngIf = "submitted && f.userName.errors" class = "invalid-feedback">
+        <input type = "text" placeholder="UserName" formControlName = "userName" class = "form-control"/>
+        <i class= "fa fa-user"></i>
+        <!-- <div *ngIf = "submitted && f.userName.errors" class = "invalid-feedback">
             <div *ngIf = "f.userName.errors.required">userName is Required</div>
-        </div>
+        </div> -->
 </div>
 
 <div class = "form-group">
-        <label for = "email">Email</label>
-        <input type = "text" formControlName = "email" class = "form-control" [ngClass] = "{'is-invalid': submitted && f.email.errors}"/>
-        <div *ngIf = "submitted && f.email.errors" class = "invalid-feedback">
+        <input type = "text" placeholder = "Email" formControlName = "email" class = "form-control" />
+        <i class = "fa fa-envelope"></i>
+        <!-- <div *ngIf = "submitted && f.email.errors" class = "invalid-feedback">
             <div *ngIf = "f.email.errors.required">Email is Required</div>
-        </div>
+        </div> -->
 </div>
 
 <div class = "form-group">
-        <label for = "password">Password</label>
-        <input type = "password" formControlName = "password" class = "form-control" [ngClass] = "{'is-invalid': submitted && f.password.errors}"/>
-        <div *ngIf = "submitted && f.password.errors" class = "invalid-feedback">
+    <input type = "text" placeholder = "Phone" formControlName = "phone" class = "form-control"/>
+    <i class = "fa fa-phone"></i>
+</div>
+
+<div class = "form-group">
+        <input type = "password" placeholder = "Password" formControlName = "password" class = "form-control"/>
+        <i class = "fa fa-lock"></i>
+        <!-- <div *ngIf = "submitted && f.password.errors" class = "invalid-feedback">
             <div *ngIf = "f.password.errors.required">Password is Required</div>
             <div *ngIf = "f.password.errors.minLength"> Password must consists of atleast 6 characters</div>
-        </div>
+        </div> -->
 </div>
 
 <div class = "form-group">
-    <button [disabled] = "loading" class = "btn btn-primary">
+    <button id = "register_button" [disabled] = "loading" class = "btn btn-primary">
     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
         Register
     </button>
-    <a routerLink = "\login" class = "btn btn-link">Cancel</a>
+    <!-- <a routerLink = "\login" class = "btn btn-link">Cancel</a> -->
+
+    <button id = "register_cancel" class = "btn btn-primary" routerLink = "home" (click) = "redirectHome()">
+        Cancel
+    </button>
+    <router-outlet></router-outlet>
+</div>
+
+<div class = "form-group">
+    <hr id = "ruler_with_text">
+</div>
+
+<div class = "form-group">
+    Already have an Account? <a href= "" routerLink="login" (click) = "userSignIn()">LogIn</a>
+    <router-outlet></router-outlet>
 </div>
 </form>

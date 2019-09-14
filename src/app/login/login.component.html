@@ -1,6 +1,7 @@
 <h2>Login</h2>
 
-<form [formGroup] = "loginForm" (ngSubmit) = "onSubmit()">
+<!-- <form [formGroup] = "loginForm" (ngSubmit) = "onSubmit()"> -->
+ <form [formGroup] = "loginForm">
     <div class="form-group">
                 <input type="text" placeholder="username" formControlName="username" class="form-control" [ngClass] = "{ 'is-invalid': submitted && f.username.errors}"/>
     <span class = "fa fa-user fa-lg input-icons-text-input"></span>
@@ -40,19 +41,18 @@
             <!-- <a routerLink = "/register" class= "btn btn-link">Register</a> -->
         </div>
 
-        <!-- ruler with text-->
-         <div class = "form-group">
+        
+        <div class = "form-group">
+            Do not have an account? <a routerLink="register" (click)= "registerUser()">Register</a>
+            <router-outlet></router-outlet>
+        </div>
+
+        <div class = "form-group">
             <hr id = "ruler_with_text">
         </div>
 
-        <!-- social login buttons -->
-    <div class = "form-group btn-group row">
-            <div class= "col-lg-12">
-                 <button class = "btn form-control btn-primary btn-lg" id="button_google">LogIn with Google</button>
-            </div>
-           
-            <div class = "col-lg-12">
-                <button class = "btn form -control btn-primary btn-lg" id="button_facebook">LogIn with Facebook</button>
-            </div>
-    </div>
+        <!-- ruler with text-->
+        <div class= "form-group">
+            <social-connect></social-connect>
+        </div>
 </form>

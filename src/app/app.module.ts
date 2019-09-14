@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
+import {HeaderComponent} from './header';
 import { appRoutingModule } from './app.routing';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
@@ -42,7 +43,8 @@ export function provideConfig(){
     LoginComponent,
     RegisterComponent,
     AlertComponent,
-    SocialConnectComponent
+    SocialConnectComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -58,9 +60,7 @@ export function provideConfig(){
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     {provide: AuthServiceConfig, useFactory: provideConfig},
-      fakeBackendProvider,
-      FacebookLoginProvider,
-      GoogleLoginProvider
+      fakeBackendProvider
     ],
   bootstrap: [AppComponent]
 })

@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit{
     loginForm: FormGroup;
     loading = false;
     submitted = false;
-    returnUrl: string;
+   // returnUrl: string;
     
 
     constructor(
@@ -27,9 +27,9 @@ export class LoginComponent implements OnInit{
         )
     {
         //checks if the user is already loggedIn. If the user is loggedIn it redirects to home page
-        if(this.authenticationService.currentUserValue){
+        /*if(this.authenticationService.currentUserValue){
             this.router.navigate(['/']);
-        }
+        }*/
     }
 
     ngOnInit(){
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit{
             password: ['',Validators.required]
         });
 //helps to redirect the user back to original page they requested before login
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl']||'/';
+       // this.returnUrl = this.route.snapshot.queryParams['returnUrl']||'/';
     };
 
     //easy access to form fields
@@ -46,12 +46,12 @@ export class LoginComponent implements OnInit{
         return this.loginForm.controls;
     }
 
-    ngOnSubmit(){
+  /*  ngOnSubmit(){
         this.submitted = true;
 
         this.alertService.clear();
 
-        //stop here if form is invalid
+        stop here if form is invalid
         if(this.loginForm.invalid){
             return;
         }
@@ -68,5 +68,9 @@ export class LoginComponent implements OnInit{
                     this.alertService.error(error);
                     this.loading = false;
                 });
+         }*/
+
+        registerUser(){
+            this.router.navigate(['/register']);
         }
     }

@@ -4,15 +4,22 @@
     text-align: center;
     color: black;
     height: 45px;
-    width: 200%;
+    width: 175%;
     font-size: medium;
+    margin-bottom: 10px;
 }
 
 #button_facebook{
+    position: relative;
     background-color: #385998;
     border-color: #385998;
     text-align: center;
     height: 45px;
-    width: 200%;
+    width: 175%;
     font-size: medium;
+    margin-bottom: 10px;
+}
+
+i{
+    margin-right: 15px;
 }

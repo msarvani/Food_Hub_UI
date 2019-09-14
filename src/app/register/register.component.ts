@@ -7,7 +7,11 @@ import {first} from 'rxjs/operators';
 import {UserService, AuthenticationService, AlertService} from '../_services';
 
 
-@Component({templateUrl: 'register.component.html'})
+@Component({
+    selector: 'food-hub-register',
+    templateUrl: 'register.component.html',
+    styleUrls: ['register.component.css']
+})
 export class RegisterComponent implements OnInit{
 
     registerForm: FormGroup;
@@ -70,4 +74,11 @@ export class RegisterComponent implements OnInit{
                 );
     }
 
+    userSignIn(){
+        this.router.navigate(['/login']);
+    }
+
+    redirectHome(){
+        this.router.navigate(['/home']);
+    }
 }
