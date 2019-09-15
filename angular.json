@@ -123,6 +123,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-practice"
+    }
+  },
+  "defaultProject": "angular-practice",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

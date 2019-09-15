@@ -6,7 +6,7 @@ import {SocialUser} from 'angularx-social-login';
 @Component({
     selector: 'social-connect',
     templateUrl: 'socialconnect.component.html',
-    styleUrls: ['./socialconnect.component.css']
+    styleUrls: ['./socialconnect.component.scss']
 })
 export class SocialConnectComponent implements OnInit{
 

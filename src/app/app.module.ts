@@ -19,6 +19,8 @@ import {MatIconRegistry, MatIconModule} from '@angular/material';
 import {GoogleLoginProvider, FacebookLoginProvider, AuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
 import {SocialConnectComponent} from './socialconnect';
 import { HelpComponent } from './help';
+import { Ng2SearchPipeModule} from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 const config = new AuthServiceConfig(
   [
@@ -56,7 +58,10 @@ export function provideConfig(){
     AvatarModule,
     FontAwesomeModule,
     MatIconModule,
-    SocialLoginModule
+    SocialLoginModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
